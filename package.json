@@ -1,13 +1,26 @@
 {
-  "name": "discord-bot",
+  "engines": {
+    "node": "13.x",
+    "npm": "*"
+  },
+  "name": "the-bot-broke",
   "version": "1.0.0",
   "description": "A simple discord bot",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThibautLenoir/Discord-Bot.git"
+  },
+  "keywords": [
+    "heroku",
+    "discord.js"
+  ],
+  "author": "Thibaut Lenoir",
+  "license": "MIT",
   "dependencies": {
     "@discordjs/opus": "^0.3.2",
     "discord.js": "^12.2.0",
