@@ -20,7 +20,7 @@ const test = message => {
 
     const jotaroEmbed = new Discord.MessageEmbed()
         .setColor('#0099ff')
-        .setDescription('I can beat the shit out of you without getting closer.')
+        .setDescription('I can\'t beat the shit out of you without getting any closer.')
         .setImage('https://i.imgur.com/hlsXDmM.png');
 
     message.channel.send(dioEmbed);
