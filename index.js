@@ -1,10 +1,5 @@
 'use strict';
 
-const {
-    prefix,
-    token
-} = require('./config.json');
-
 const fs = require('fs');
 const Discord = require('discord.js');
 
@@ -23,9 +18,9 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-    if (!message.content.startsWith(prefix) || message.author.bot) return;
+    if (!message.content.startsWith(process.env.PREFIX) || message.author.bot) return;
 
-    const args = message.content.slice(prefix.length).split(' ');
+    const args = message.content.slice(process.env.PREFIX.length).split(' ');
     const commandName = args.shift().toLowerCase();
 
     if (!client.commands.has(commandName)) return;
@@ -36,7 +31,7 @@ client.on('message', message => {
         let reply = `You didn't provide any arguments, ${message.author}!`;
 
         if (command.usage) {
-            reply += `\nThe proper usage would be: \`${prefix}${command.name} ${command.usage}\``;
+            reply += `\nThe proper usage would be: \`${process.env.PREFIX}${command.name} ${command.usage}\``;
         }
 
         return message.channel.send(reply);
@@ -50,4 +45,4 @@ client.on('message', message => {
     }
 });
 
-client.login(token);
+client.login(process.env.TOKEN);
