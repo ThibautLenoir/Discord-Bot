@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const ytdl = require('ytdl-core');
 
 module.exports = {
     name: 'jojo',
@@ -11,6 +12,9 @@ module.exports = {
         }
 
         switch (args[0]) {
+            case 'warudo':
+                warudo(message);
+                break;
             case 'approach':
                 approach(message);
                 break;
@@ -46,6 +50,27 @@ const kono = message => {
     const dioEmbed = new Discord.MessageEmbed()
         .setTitle('KONO DIO DA!!111!!!!1!')
         .setImage('https://i1.sndcdn.com/artworks-000178961422-k21zbp-t500x500.jpg');
+
+    message.channel.send(dioEmbed);
+}
+
+const warudo = message => {
+    const url = 'https://www.youtube.com/watch?v=7ePWNmLP0Z0';
+
+    const dioEmbed = new Discord.MessageEmbed()
+        .setColor('#0099ff')
+        .setTitle('ZA WARUDO!!!1!!11!!11!!')
+        .setImage('https://media.giphy.com/media/nyNS6Cfrnkdj2/giphy.gif');
+
+    if (message.member.voice.channel) {
+        message.member.voice.channel.join().then(connection => {
+            connection.play(ytdl(url, {
+                filter: 'audioonly'
+            }));
+        })
+    } else {
+        console.log("Can't find channel");
+    }
 
     message.channel.send(dioEmbed);
 }
