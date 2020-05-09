@@ -4,7 +4,7 @@ const ytdl = require('ytdl-core');
 module.exports = {
     name: 'jojo',
     description: 'Jojo commands',
-    usage: '<subcommand: approach | kono>',
+    usage: '<subcommand: approach | kono | warudo>',
     args: true,
     execute(message, args) {
         if (args[0] === "approach") {
