@@ -3,16 +3,27 @@ const Discord = require('discord.js');
 module.exports = {
     name: 'jojo',
     description: 'Jojo commands',
-    usage: '<subcommand: approach>',
+    usage: '<subcommand: approach | kono>',
     args: true,
     execute(message, args) {
         if (args[0] === "approach") {
             test(message);
         }
+
+        switch (args[0]) {
+            case 'approach':
+                approach(message);
+                break;
+            case 'kono':
+                kono(message);
+                break;
+            default:
+                console.log('Error with jojo module');
+        }
     },
 };
 
-const test = message => {
+const approach = message => {
     const dioEmbed = new Discord.MessageEmbed()
         .setColor('#0099ff')
         .setDescription('Oh? You\'re approaching me? Instead of running away, you\'re coming right to me? Even though your grandfather, Joseph, told you the secret of za warudo like an exam student scrambling to finish the last problems on an exam until the last moments before the chime?')
@@ -30,3 +41,11 @@ const test = message => {
 
     message.channel.send(dioEmbed);
 };
+
+const kono = message => {
+    const dioEmbed = new Discord.MessageEmbed()
+        .setTitle('KONO DIO DA!!111!!!!1!')
+        .setImage('https://i1.sndcdn.com/artworks-000178961422-k21zbp-t500x500.jpg');
+
+    message.channel.send(dioEmbed);
+}
