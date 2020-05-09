@@ -11,11 +11,12 @@ const {
 } = require('./config.json');
 
 const ytdl = require('ytdl-core');
+const config = require('./config.json');
 
 const client = new Client();
 let mainVC;
 
-client.login('NzA4NjM1NDQxMzQ3Mjk3Mjgw.XraSHw.NewjQDXGt1fSO4GRXl7fTEPL48A');
+client.login(config.token);
 
 client.on('ready', () => {
     mainVC = client.channels.cache.get("433272666414383116");
