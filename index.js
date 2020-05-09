@@ -9,7 +9,10 @@ const {
     token
 } = require('./config.json');
 
+const fs = require('fs');
+
 const client = new Client();
+client.commands = new Discord.Collection();
 
 client.on('ready', () => {
     console.log('Running...');
