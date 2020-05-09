@@ -7,9 +7,6 @@ module.exports = {
     usage: '<subcommand: approach | kono | warudo>',
     args: true,
     execute(message, args) {
-        if (args[0] === "approach") {
-            test(message);
-        }
 
         switch (args[0]) {
             case 'warudo':
